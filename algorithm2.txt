@@ -1,0 +1,32 @@
+VAR
+  htab : HASH_TABLE<INTEGER,STRING>;
+  set1: ARRAY_OF CHAR[50];
+  set2 : ARRAY_OF char[50];
+  count,sum;i:integer:=0;
+
+BEGIN
+ read(set1);
+ read(set2);
+     FOR i FROM 0 TO set1.length -1 STEP 1  DO
+       IF (htab.lookup(str[i]) = TRUE) THEN
+           count := htab.get(str[i]);
+           htab.insert(set1[i],count+1);
+       ELSE
+           htab.insert(set2[i],1);
+       END_IF
+   END_FOR
+     FOR i FROM 0 TO set2.length -1 STEP 1  DO
+       IF (htab.lookup(set2[i]) = TRUE) THEN
+           count := htab.get(set2[i]);
+           htab.insert(set2[i],count+1);
+       ELSE
+           htab.insert(set2[i],1);
+       END_IF
+   END_FOR
+    FOR i FROM 0 TO htab.length -1 STEP 1  DO
+       IF (htab.get(i) = 1) THEN
+           sum:=sum+i;
+       END_IF
+   END_FOR
+   write("la sommes est",sum);
+END

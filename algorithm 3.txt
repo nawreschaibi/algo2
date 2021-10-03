@@ -1,0 +1,14 @@
+VAR
+   sum;i;j:integer:=0;
+BEGIN
+    read(set1);
+    read(set2);
+    FOR i FROM 0 TO set1.length STEP 1  DO
+        FOR j FROM 0 TO set2.length STEP 1  DO
+          IF (set1[i]=set2[j]) THEN
+              sum:=sum+set1[i]+set2[j];
+          END_IF
+        END_FOR
+    END_FOR
+    write("la somme est",sum);
+END 
